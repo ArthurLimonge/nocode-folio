@@ -88,8 +88,7 @@
     oklch(0.45 0.2 250 / 0.25),
     transparent 70%
   );
-  --shadow-glow: 0 0 0 1px oklch(0.6 0.24 295 / 0.4),
-    0 12px 40px -8px oklch(0.6 0.24 295 / 0.4);
+  --shadow-glow: 0 0 0 1px oklch(0.6 0.24 295 / 0.4), 0 12px 40px -8px oklch(0.6 0.24 295 / 0.4);
 }
 
 @layer base {
@@ -165,8 +164,13 @@
 }
 
 @keyframes wiggle {
-  0%, 100% { transform: rotate(-0.7deg); }
-  50% { transform: rotate(0.7deg); }
+  0%,
+  100% {
+    transform: rotate(-0.7deg);
+  }
+  50% {
+    transform: rotate(0.7deg);
+  }
 }
 
 @utility animate-bento-in {

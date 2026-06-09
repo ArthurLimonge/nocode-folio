@@ -276,11 +276,11 @@ SQL
 
 exists (
 
-  select 1 from perfis
+select 1 from perfis
 
-  where [perfis.id](http://perfis.id) = blocos.perfil_id
+where [perfis.id](http://perfis.id) = blocos.perfil_id
 
-  and perfis.usuario_id = auth.uid()
+and perfis.usuario_id = auth.uid()
 
 )
 

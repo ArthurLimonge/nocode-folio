@@ -16,5 +16,8 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Modo SPA: prerenderiza um index.html e hidrata no cliente.
+    // Toda a busca de dados é client-side (Supabase), então não precisamos de SSR.
+    spa: { enabled: true },
   },
 });

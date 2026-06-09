@@ -137,8 +137,8 @@ export function ProfileWidget() {
           Lucas Mendes
         </h1>
         <p className="mt-1 text-sm text-muted-foreground sm:text-base">
-          NoCode Builder & Creative Developer. Construindo produtos que parecem mágica
-          — sem escrever (muito) código.
+          NoCode Builder & Creative Developer. Construindo produtos que parecem mágica — sem
+          escrever (muito) código.
         </p>
       </div>
 

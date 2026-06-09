@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AuthProvider } from "../lib/auth";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -78,16 +80,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "NoCode Folio — Your modular Bento profile" },
-      { name: "description", content: "A modular dark-mode link-in-bio built like a Bento Grid. Showcase your work, socials, and projects in one beautiful page." },
+      {
+        name: "description",
+        content:
+          "A modular dark-mode link-in-bio built like a Bento Grid. Showcase your work, socials, and projects in one beautiful page.",
+      },
       { name: "author", content: "NoCode Startup" },
       { property: "og:title", content: "NoCode Folio — Your modular Bento profile" },
-      { property: "og:description", content: "A modular dark-mode link-in-bio built like a Bento Grid. Showcase your work, socials, and projects in one beautiful page." },
+      {
+        property: "og:description",
+        content:
+          "A modular dark-mode link-in-bio built like a Bento Grid. Showcase your work, socials, and projects in one beautiful page.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "NoCode Folio — Your modular Bento profile" },
-      { name: "twitter:description", content: "A modular dark-mode link-in-bio built like a Bento Grid. Showcase your work, socials, and projects in one beautiful page." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4afe940c-8b1f-4e58-b7ed-66eaad69cb07/id-preview-8c6f33c1--0c0e3a0c-e156-4be6-babb-6f01f27476ee.lovable.app-1780958374253.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4afe940c-8b1f-4e58-b7ed-66eaad69cb07/id-preview-8c6f33c1--0c0e3a0c-e156-4be6-babb-6f01f27476ee.lovable.app-1780958374253.png" },
+      {
+        name: "twitter:description",
+        content:
+          "A modular dark-mode link-in-bio built like a Bento Grid. Showcase your work, socials, and projects in one beautiful page.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4afe940c-8b1f-4e58-b7ed-66eaad69cb07/id-preview-8c6f33c1--0c0e3a0c-e156-4be6-babb-6f01f27476ee.lovable.app-1780958374253.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4afe940c-8b1f-4e58-b7ed-66eaad69cb07/id-preview-8c6f33c1--0c0e3a0c-e156-4be6-babb-6f01f27476ee.lovable.app-1780958374253.png",
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -127,8 +149,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <AuthProvider>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <Toaster position="top-center" richColors />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
